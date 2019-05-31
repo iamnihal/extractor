@@ -18,7 +18,7 @@ echo "What you want to extract? (1/2/3/4/5)"
 read choice
 echo "Enter your file name:- "
 read file
- 	email()
+email() 
 		{
 		emails=$(cat "$file" | egrep -ow '[a-z0-9\.\_\-]*@[a-z]*\.[a-z]{2,4}(\.[a-z]{2,4})?' | sort -u)       
 		count=$(cat "$file" | egrep -ow '[a-z0-9\.\_\-]*@[a-z]*\.[a-z]{2,4}(\.[a-z]{2,4})?' | sort -u | wc -l)  
