@@ -1,23 +1,5 @@
-#!/bin/bash     
-clear
-echo -e "\t\t\t\t -------------------"
-echo -e "\t\t\t\t !     Extractor    !"
-echo -e "\t\t\t\t -------------------"
-echo -e "\t\t\t\t\t\t By Nihal"
-echo "-----------------------------"
-echo "            MENU             |"
-echo "-----------------------------|"
-echo "1) Email                     |"
-echo "2) IP                        |" 
-echo "3) Phone Number [INDIAN]     |"
-echo "4) URL                       |"
-echo "5) Extract everything        |"
-echo "6) Exit                      |"
-echo "-----------------------------"
-echo "What you want to extract? (1/2/3/4/5)"
-read choice
-echo "Enter your file name:- "
-read file
+#!/bin/bash    
+
 email() 
 		{
 		emails=$(cat "$file" | egrep -ow '[a-z0-9\.\_\-]*@[a-z]*\.[a-z]{2,4}(\.[a-z]{2,4})?' | sort -u)       
@@ -58,7 +40,53 @@ URL()
 	echo "------------------------------"
 	nl -w2 -s ') ' <(echo "$URL")
 	echo "------------------------------"
-}	
+}
+logo()
+{
+cat <<"EOT"
+	         _____      _                  _             
+	        | ____|_  _| |_ _ __ __ _  ___| |_ ___  _ __ 
+	        |  _| \ \/ / __| '__/ _` |/ __| __/ _ \| '__|
+	        | |___ >  <| |_| | | (_| | (__| || (_) | |   
+	        |_____/_/\_\\__|_|  \__,_|\___|\__\___/|_|   
+                                         
+		                  			 By Nihal <3
+EOT
+}
+menu()
+{
+echo "-----------------------------"
+echo "            MENU             |"
+echo "-----------------------------|"
+echo "1) Email                     |"
+echo "2) IP                        |" 
+echo "3) Phone Number [INDIAN]     |"
+echo "4) URL                       |"
+echo "5) Extract everything        |"
+echo "6) Exit                      |"
+echo "-----------------------------"
+echo "What you want to extract? (1/2/3/4/5/6)"
+read choice
+if [ "$choice" -eq 1 ] || [ "$choice" -eq 2 ] || [ "$choice" -eq 3 ] || [ "$choice" -eq 4 ] || [ "$choice" -eq 5 ]
+then
+	echo "Enter your file name:- "
+	read file
+else
+	if [ "$choice" -eq 6 ]
+	then
+		exit
+		fi
+
+	echo "You have entered an option which doesn't exist in my menu :("
+	exit 0
+	fi
+}
+main()
+{
+	clear
+	logo
+	menu
+
 if [ -f "$file" ]
 then
 	case $choice in 
@@ -81,15 +109,14 @@ then
 		URL
 		;;
 	6)
+		echo "Thank you and have a nice day"
 		exit
+	
 		;;
-	*)	echo && echo "You have entered an option which doesn't exist in my MENU :("
 esac
 else
 echo
 echo "File doesn't exist or you have entered a wrong location :("
 fi
-
-
-
-		
+}
+main
