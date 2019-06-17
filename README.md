@@ -25,4 +25,4 @@ Extractor can extract the following data:
 This tool uses Regular Expression (RegEx) to extract specific informations from a file.
 
 ### Note:-
-I have tested this tool with the files having extensions like txt, html, json, xml, csv, js, css and many others. Extractor is incapable to pull out informations from a file in which the raw source code is exist in binary or in other format except plain text.
+I have tested this tool with the files having extensions like txt, html, json, xml, csv, js, css and many others. Extractor is incapable to pull out informations from a file in which the raw source code is exist in binary or in other format type except plain text.
