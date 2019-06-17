@@ -1,8 +1,8 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/iamnihal/extractor"><img src="https://raw.githubusercontent.com/iamnihal/extractor/master/logo.png" alt="Extrator"></a>
+  <a href="https://github.com/iamnihal/extractor"><img src="https://raw.githubusercontent.com/iamnihal/extractor/master/logo.png" alt="Extractor"></a>
   <br>
-  Photon
+  Extractor
   <br>
 </h1>
 	
