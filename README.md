@@ -1,8 +1,12 @@
-   ![alt text](logo.png "Logo Title Text 1")
-
-
-# extractor
-	         _____      _                  _             
+<h1 align="center">
+  <br>
+  <a href="https://github.com/iamnihal/extractor"><img src="https://raw.githubusercontent.com/iamnihal/extractor/master/logo.png" alt="Extrator"></a>
+  <br>
+  Photon
+  <br>
+</h1>
+	
+		 _____      _                  _             
 	        | ____|_  _| |_ _ __ __ _  ___| |_ ___  _ __ 
 	        |  _| \ \/ / __| '__/ _` |/ __| __/ _ \| '__|
 	        | |___ >  <| |_| | | (_| | (__| || (_) | |   
