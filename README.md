@@ -8,6 +8,6 @@
 
 <h4 align="center">Extractor that pull out specific informations from a source.</h4>
 
-![demo](OverviewPic.png)
+![demo](Pic.png)
 
 A tool which is written in Bash Shell Scripting is capable of extracting Email, IP, Phone Number [INDIAN] and URL from a file using Regular Expressions. :)
