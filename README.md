@@ -1,4 +1,4 @@
-                                ![alt text](logo.png "Logo Title Text 1")
+   ![alt text](logo.png "Logo Title Text 1")
 
 
 # extractor
