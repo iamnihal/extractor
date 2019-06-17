@@ -5,7 +5,8 @@
   Extractor
   <br>
 </h1>
-	
+
+<h4 align="center">Extractor that pull out specific informations from a source.</h4>
 		 _____      _                  _             
 	        | ____|_  _| |_ _ __ __ _  ___| |_ ___  _ __ 
 	        |  _| \ \/ / __| '__/ _` |/ __| __/ _ \| '__|
