@@ -107,12 +107,7 @@ then
 		IP
 		PHONE
 		URL
-		;;
-	6)
-		echo "Thank you and have a nice day"
-		exit
-	
-		;;
+		;;	
 esac
 else
 echo
