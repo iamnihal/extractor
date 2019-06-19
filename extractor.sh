@@ -55,21 +55,21 @@ EOT
 }
 menu()
 {
-echo "-----------------------------"
-echo "            MENU             |"
-echo "-----------------------------|"
-echo "1) Email                     |"
-echo "2) IP                        |" 
-echo "3) Phone Number [INDIAN]     |"
-echo "4) URL                       |"
-echo "5) Extract everything        |"
-echo "6) Exit                      |"
-echo "-----------------------------"
-echo "What you want to extract? (1/2/3/4/5/6)"
+echo -e "\033[1;31m-----------------------------" 
+echo -e "\033[1;31m            MENU             |"
+echo -e "\033[1;31m-----------------------------|"
+echo -e "\033[1;31m1) Email                     |"
+echo -e "\033[1;31m2) IP                        |" 
+echo -e "\033[1;31m3) Phone Number [INDIAN]     |"
+echo -e "\033[1;31m4) URL                       |"
+echo -e "\033[1;31m5) Extract everything        |"
+echo -e "\033[1;31m6) Exit                      |"
+echo -e "\033[1;31m------------------------------"
+echo -e "\033[1;33m\nWhat you want to extract? (1/2/3/4/5/6)"
 read choice
 if [ "$choice" -eq 1 ] || [ "$choice" -eq 2 ] || [ "$choice" -eq 3 ] || [ "$choice" -eq 4 ] || [ "$choice" -eq 5 ]
 then
-	echo "Enter your file name:- "
+	echo -e "\nEnter your file name:- "
 	read file
 else
 	if [ "$choice" -eq 6 ]
@@ -77,7 +77,7 @@ else
 		exit
 		fi
 
-	echo "You have entered an option which doesn't exist in my menu :("
+	echo -e "\033[1;34m\nYou have entered "$choice" which doesn't exist in my menu :("
 	exit 0
 	fi
 }
@@ -111,7 +111,7 @@ then
 esac
 else
 echo
-echo "File doesn't exist or you have entered a wrong location :("
+echo -e "\033[1;34mFile doesn't exist or you have entered a wrong location :("
 fi
 }
 main
