@@ -28,5 +28,5 @@ This tool uses Regular Expression (RegEx) to extract specific informations from 
 I have tested this tool with the files having extensions like txt, html, json, xml, csv, js, css and many others. Extractor is incapable to pull out informations from a file in which the raw source code is exist in binary or in other format type except plain text.
 
 
-### Suggestions are most welcome!
+### Suggestions are most welcome! :+1:
 :+1:
