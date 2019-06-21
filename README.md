@@ -29,4 +29,4 @@ I have tested this tool with the files having extensions like txt, html, json, x
 
 
 ### Suggestions are most welcome! :+1:
-:+1:
+
