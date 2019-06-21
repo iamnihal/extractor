@@ -7,7 +7,8 @@ email()
 		echo "------------------------------"
 		echo "    $count emails are found"
 		echo "------------------------------"
-		nl -w2 -s ') ' <(echo "$emails")                                                           
+		output1=$(nl -w2 -s ') ' <(echo "$emails"))
+		echo "$output1" 
 		echo "------------------------------"
 	}
 IP()
@@ -18,7 +19,8 @@ IP()
 	       echo "------------------------------"
 	       echo " $count IP addresses are found"
 	       echo "------------------------------"
-	       nl -w2 -s ') ' <(echo "$IP")
+	       output2=$(nl -w2 -s ') ' <(echo "$IP"))
+	       echo "$output2"
 	       echo "------------------------------"
        }
 PHONE()
@@ -28,7 +30,8 @@ PHONE()
 	echo "------------------------------"
 	echo " $count Phone numbers are found"
 	echo "------------------------------"
-	nl -w2 -s ') ' <(echo "$PHONE")
+	output3=$(nl -w2 -s ') ' <(echo "$PHONE"))
+	echo "$output3"
 	echo "------------------------------"
 }
 URL()
@@ -38,7 +41,8 @@ URL()
 	echo "------------------------------"
 	echo "  $count URL's are found"   
 	echo "------------------------------"
-	nl -w2 -s ') ' <(echo "$URL")
+	output4=$(nl -w2 -s ') ' <(echo "$URL"))
+	echo "$output4"
 	echo "------------------------------"
 }
 logo()
@@ -77,14 +81,53 @@ else
 		exit
 		fi
 
-	echo -e "\033[1;34m\nYou have entered "$choice" which doesn't exist in my menu :("
+	echo -e "\033[1;34m\nYou have entered "$choice" which isn't a choice :(\nPlease try again with a valid choice."
 	exit 0
 	fi
+}
+output()
+{
+	case $choice in
+	1)
+		sed -i '/Latest/d' ./output/email.txt
+		sed -i '/------------------------------/d' ./output/email.txt
+		echo -e "-----------------------------" >> ./output/email.txt
+		echo -e "\tLatest\n------------------------------" >> ./output/email.txt
+		touch ./output/email.txt & echo "$output1" >> ./output/email.txt
+		echo "------------------------------" >> ./output/email.txt
+		;;
+	2)	
+		sed -i '/Latest/d' ./output/ip.txt
+		sed -i '/------------------------------/d' ./output/ip.txt
+		echo -e "-----------------------------" >> ./output/ip.txt
+		echo -e "\tLatest\n------------------------------" >> ./output/ip.txt
+		touch ./output/ip.txt & echo "$output2" >> ./output/ip.txt
+		echo "------------------------------" >> ./output/ip.txt
+		;;
+	3)
+	 	sed -i '/Latest/d' ./output/phone.txt
+		sed -i '/------------------------------/d' ./output/phone.txt
+		echo -e "-----------------------------" >> ./output/phone.txt
+		echo -e "\tLatest\n------------------------------" >> ./output/phone.txt
+		touch ./output/phone.txt & echo "$output3" >> ./output/phone.txt
+		echo "------------------------------" >> ./output/phone.txt
+		;;
+	4)      
+		sed -i '/Latest/d' ./output/url.txt
+		sed -i '/------------------------------/d' ./output/url.txt
+		echo -e "-----------------------------" >> ./output/url.txt
+		echo -e "\tLatest\n------------------------------" >> ./output/url.txt
+		touch ./output/url.txt & echo "$output4" >> ./output/url.txt
+		echo "------------------------------" >> ./output/url.txt
+		;;
+	esac
+
 }
 main()
 {
 	clear
 	logo
+	mkdir -p ./output/
 	menu
 
 if [ -f "$file" ]
@@ -110,8 +153,20 @@ then
 		;;	
 esac
 else
-echo
-echo -e "\033[1;34mFile doesn't exist or you have entered a wrong location :("
-fi
+	echo -e "\033[1;34mFile doesn't exist or you have entered a wrong location :("
+	exit
+	fi
+echo "Would you like to save the output? (Y/N)"
+read choice2
+if [ $choice2 == "Y" ] || [ $choice2 == "y" ]
+then
+	output
+	echo "Output has been successfully saved!"
+elif [ $choice2 == "N" ] || [ $choice2 == "n" ]
+then
+	echo "Hope to see you soon!"
+else
+	echo "Choice Error!"
+	fi
 }
 main
