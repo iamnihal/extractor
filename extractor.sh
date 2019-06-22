@@ -85,44 +85,72 @@ else
 	exit 0
 	fi
 }
+
+email_output()
+{
+	touch ./output/email.txt
+	sed -i '/Latest/d' ./output/email.txt
+	sed -i '/------------------------------/d' ./output/email.txt
+	echo -e "-----------------------------" >> ./output/email.txt
+	echo -e "\tLatest\n------------------------------" >> ./output/email.txt
+	echo "$output1" >> ./output/email.txt
+	echo "------------------------------" >> ./output/email.txt
+}
+
+ip_output()
+{	
+	touch ./output/ip.txt
+	sed -i '/Latest/d' ./output/ip.txt
+	sed -i '/------------------------------/d' ./output/ip.txt
+	echo -e "-----------------------------" >> ./output/ip.txt
+	echo -e "\tLatest\n------------------------------" >> ./output/ip.txt
+	echo "$output2" >> ./output/ip.txt
+	echo "------------------------------" >> ./output/ip.txt
+}
+
+phone_output()
+{
+	touch ./output/phone.txt
+ 	sed -i '/Latest/d' ./output/phone.txt
+	sed -i '/------------------------------/d' ./output/phone.txt
+	echo -e "-----------------------------" >> ./output/phone.txt
+	echo -e "\tLatest\n------------------------------" >> ./output/phone.txt
+	echo "$output3" >> ./output/phone.txt
+	echo "------------------------------" >> ./output/phone.txt
+}
+
+url_output()
+{
+	touch ./output/url.txt
+	sed -i '/Latest/d' ./output/url.txt
+	sed -i '/------------------------------/d' ./output/url.txt
+	echo -e "-----------------------------" >> ./output/url.txt
+	echo -e "\tLatest\n------------------------------" >> ./output/url.txt
+	echo "$output4" >> ./output/url.txt
+	echo "------------------------------" >> ./output/url.txt
+}
+
 output()
 {
-	case $choice in
-	1)
-		sed -i '/Latest/d' ./output/email.txt
-		sed -i '/------------------------------/d' ./output/email.txt
-		echo -e "-----------------------------" >> ./output/email.txt
-		echo -e "\tLatest\n------------------------------" >> ./output/email.txt
-		touch ./output/email.txt & echo "$output1" >> ./output/email.txt
-		echo "------------------------------" >> ./output/email.txt
-		;;
-	2)	
-		sed -i '/Latest/d' ./output/ip.txt
-		sed -i '/------------------------------/d' ./output/ip.txt
-		echo -e "-----------------------------" >> ./output/ip.txt
-		echo -e "\tLatest\n------------------------------" >> ./output/ip.txt
-		touch ./output/ip.txt & echo "$output2" >> ./output/ip.txt
-		echo "------------------------------" >> ./output/ip.txt
-		;;
-	3)
-	 	sed -i '/Latest/d' ./output/phone.txt
-		sed -i '/------------------------------/d' ./output/phone.txt
-		echo -e "-----------------------------" >> ./output/phone.txt
-		echo -e "\tLatest\n------------------------------" >> ./output/phone.txt
-		touch ./output/phone.txt & echo "$output3" >> ./output/phone.txt
-		echo "------------------------------" >> ./output/phone.txt
-		;;
-	4)      
-		sed -i '/Latest/d' ./output/url.txt
-		sed -i '/------------------------------/d' ./output/url.txt
-		echo -e "-----------------------------" >> ./output/url.txt
-		echo -e "\tLatest\n------------------------------" >> ./output/url.txt
-		touch ./output/url.txt & echo "$output4" >> ./output/url.txt
-		echo "------------------------------" >> ./output/url.txt
-		;;
-	esac
-
-}
+	if [ "$choice" -eq 1 ]
+	then
+		email_output
+	elif [ "$choice" -eq 2 ]
+	then
+		ip_output
+	elif [ "$choice" -eq 3 ]
+	then
+		phone_output
+	elif [ "$choice" -eq 4 ]
+	then
+		url_output
+	else
+		email_output
+		ip_output
+		phone_output
+		url_output
+		fi
+	}
 main()
 {
 	clear
