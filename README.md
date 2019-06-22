@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-<h4 align="center">Extractor that pull out specific informations from a source file.</h4>
+<h4 align="center">Extractor that pulls out specific informations from a source file.</h4>
 
 ![demo](Pic.png)
 
