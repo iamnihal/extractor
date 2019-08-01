@@ -2,8 +2,8 @@
 
 email() 
 {
-	emails=$(cat "$file" | egrep -ow '[a-z0-9\.\_\-]*@[a-z]*\.[a-z]{2,4}(\.[a-z]{2,4})?' | sort -u)       
-	count=$(cat "$file" | egrep -ow '[a-z0-9\.\_\-]*@[a-z]*\.[a-z]{2,4}(\.[a-z]{2,4})?' | sort -u | wc -l)  
+	emails=$(cat "$file" | grep -Eow '[a-z0-9\.\_\-]*@[a-z]*\.[a-z]{2,4}(\.[a-z]{2,4})?' | sort -u)       
+	count=$(cat "$file" | grep -Eow '[a-z0-9\.\_\-]*@[a-z]*\.[a-z]{2,4}(\.[a-z]{2,4})?' | sort -u | wc -l)  
 	echo "------------------------------"
 	echo "    $count emails are found"
 	echo "------------------------------"
@@ -14,8 +14,8 @@ email()
 IP()
 {
 
-	IP=$(cat "$file" | egrep -ow '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}' | sort -u)
-	count=$(cat "$file" | egrep -ow '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}' | sort -u | wc -l)
+	IP=$(cat "$file" | grep -Eow '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}' | sort -u)
+	count=$(cat "$file" | grep -Eow '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}' | sort -u | wc -l)
 	echo "------------------------------"
 	echo " $count IP addresses are found"
 	echo "------------------------------"
@@ -25,8 +25,8 @@ IP()
 }
 PHONE()
 {
-	PHONE=$(cat "$file" | grep -oP '[6-9]\d{9}' | sort -u )
-	count=$(cat "$file" | grep -oP '[6-9]\d{9}' | sort -u | wc -l)
+	PHONE=$(cat "$file" | grep -EoP '[6-9]\d{9}' | sort -u )
+	count=$(cat "$file" | grep -EoP '[6-9]\d{9}' | sort -u | wc -l)
 	echo "------------------------------"
 	echo " $count Phone numbers are found"
 	echo "------------------------------"
@@ -81,7 +81,7 @@ menu()
 			exit
 		fi
 
-		echo -e "\033[1;34m\nYou have entered "$choice" which isn't a choice :(\nPlease try again with a valid choice."
+		echo -e "\033[1;34m\nYou have entered \"$choice\" which isn't a choice :(\nPlease try again with a valid choice."
 		exit 0
 	fi
 }
